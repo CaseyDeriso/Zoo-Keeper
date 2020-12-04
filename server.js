@@ -1,8 +1,9 @@
 const express = require("express");
+const PORT = process.env.PORT || 3001;
 const app = express();
 const { animals } = require("./data/animals.json");
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log(`API server is now on port 8080!`);
 });
 
