@@ -117,6 +117,16 @@
         "hungry"
       ],
       "id": "11"
+    },
+    {
+      "name": "Casey",
+      "species": "Liger",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "anxious",
+        "goofy"
+      ],
+      "id": "12"
     }
   ]
 }
