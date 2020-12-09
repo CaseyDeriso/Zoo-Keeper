@@ -1,17 +1,14 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const { animals } = require("./data/animals.json");
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoing JSON data
 app.use(express.json());
-const { animals } = require("./data/animals.json");
-
-app.listen(PORT, () => {
-  console.log(`API server is now on port 8080!`);
-});
 
 function filterByQuery(query, animalsArray) {
   let personalityTraitsArray = [];
@@ -112,4 +109,8 @@ app.post("/api/animals", (req, res) => {
     const animal = createNewAnimal(req.body, animals);
     res.json(animal);
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`API server is now on port 8080!`);
 });
