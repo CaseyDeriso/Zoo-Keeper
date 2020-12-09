@@ -9,6 +9,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoing JSON data
 app.use(express.json());
+// set up path to public directory
+app.use(express.static('public'))
 
 function filterByQuery(query, animalsArray) {
   let personalityTraitsArray = [];
@@ -111,6 +113,10 @@ app.post("/api/animals", (req, res) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`API server is now on port 8080!`);
+  console.log(`API server is now on port 3001!`);
 });
